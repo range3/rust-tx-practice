@@ -1,0 +1,8 @@
+[package]
+name = "async"
+version = "0.1.0"
+authors = ["range3 <white.line.oar@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+tokio = {version = "0.1.15", features = ["async-await-preview"]}
