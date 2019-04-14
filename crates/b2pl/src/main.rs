@@ -16,14 +16,13 @@ impl Item {
 }
 
 fn main() {
-  let mut handles = vec![];
-
   let mut items = vec![];
   for _ in 0..100 {
     items.push(Mutex::new(Item::new()));
   }
   let items = Arc::new(items);
 
+  let mut handles = vec![];
   let nthreads = 10;
   let elapsed_time = time::Instant::now();
 
@@ -47,5 +46,8 @@ fn main() {
 
   println!("{:?}", items);
   println!("Elapsed time(sec): {}", elapsed_time.as_secs_f64());
-  println!("Throuput (trans/sec): {}", nthreads as f64 / elapsed_time.as_secs_f64());
+  println!(
+    "Throuput (trans/sec): {}",
+    nthreads as f64 / elapsed_time.as_secs_f64()
+  );
 }
